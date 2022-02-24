@@ -184,8 +184,9 @@ class BasicClassifierWithF1(Model):
         metric_dict = {}
         sum_f1 = 0.0
         for name, metric in self._label_f1_metrics.items():
+            # import pdb; pdb.set_trace() 
             metric_val = metric.get_metric(reset)
-            sum_f1 += metric_val[2]
+            sum_f1 += metric_val['f1']
         if self._track_weights:
             for name, parameter in self.named_parameters():
                 metric_dict[name + "_l2_distance"] = self.compute_l2_distance(self._initial_params[name], parameter)

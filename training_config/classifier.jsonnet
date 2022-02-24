@@ -16,7 +16,8 @@ local NUM_EPOCHS = std.parseInt(std.extVar("NUM_EPOCHS"));
 // lazy mode
 local LAZY = std.parseInt(std.extVar("LAZY")) == 1;
 // batch size
-local BATCH_SIZE = std.parseInt(std.extVar("BATCH_SIZE"));
+// local BATCH_SIZE = std.parseInt(std.extVar("BATCH_SIZE"));
+local BATCH_SIZE = 16;
 // will sample this amount of training data, if set
 local TRAIN_THROTTLE = std.parseInt(std.extVar("TRAIN_THROTTLE"));
 // gradient accumulation batch size
