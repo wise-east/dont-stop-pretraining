@@ -1,4 +1,5 @@
 .mypy_cache/
+allentune/
 __pycache__/
 model_logs/
 *.out

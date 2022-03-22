@@ -1,16 +1,19 @@
 #!/bin/bash
 
-#SBATCH --cpus-per-task=10
-#SBATCH --gres=gpu:1
-#SBATCH --partition=a100
+#SBATCH --cpus-per-task=8
+#SBATCH --mem=64GB
+#SBATCH --gres=gpu:a40:1
+#SBATCH --partition=isi
 #SBATCH --time=12:00:00
 #SBATCH --job-name=task_ft
 
-source /data/home/justincho/miniconda/etc/profile.d/conda.sh
-# source ~/.bashrc
-cd /data/home/justincho/Data2Vec_lightning/dont-stop-pretraining
+source ~/.bashrc
+source /project/jonmay_231/hjcho/Data2Vec_lightning/set_envs.sh
+cd /project/jonmay_231/hjcho/Data2Vec_lightning/dont-stop-pretraining
 
-conda activate dapt_ft
+echo $TRANSFORMERS_CACHE
+
+conda activate dapt
 start_time=$(date +%Y-%m-%d-%H:%M:%S)
 
 # $1 is the task, which can be found in environments/datasets.py (ag, hyperpartisan, etc.)
